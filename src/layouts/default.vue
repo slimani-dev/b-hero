@@ -75,6 +75,7 @@
         </v-navigation-drawer>
 
         <v-app-bar app
+                   :clipped-left="$vuetify.breakpoint.lgAndUp"
                    color="pink"
                    dark>
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"/>
@@ -95,7 +96,7 @@
         <v-content>
             <slot></slot>
         </v-content>
-        <!--<v-btn bottom
+        <v-btn bottom
                color="pink"
                dark
                fab
@@ -176,7 +177,7 @@
                     </v-btn>
                 </v-card-actions>
             </v-card>
-        </v-dialog>-->
+        </v-dialog>
     </v-app>
 </template>
 

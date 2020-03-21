@@ -1,5 +1,5 @@
 <template>
-    <v-container fluid class="pt-0 px-0 grey lighten-4">
+    <v-container fluid class="pt-0 px-0 grey lighten-4" style="max-width: 700px">
 
         <v-card class="pink pa-5 mb-2 elevation-2">
 
@@ -199,6 +199,7 @@ export default {
                     },
                     location: 'Sidi Bel Abbess',
                     time: '6 min ago',
+                    liked: false,
                     image: 'https://i.imgur.com/0A1DoxO.png',
                     description: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem'
                 },
@@ -211,6 +212,7 @@ export default {
                     },
                     location: 'Sidi Bel Abbess',
                     time: '6 min ago',
+                    liked: false,
                     image: 'https://i.imgur.com/MgtsHlZ.jpg',
                     description: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem'
                 },
@@ -223,6 +225,7 @@ export default {
                     },
                     location: 'Sidi Bel Abbess',
                     time: '6 min ago',
+                    liked: false,
                     image: 'https://i.imgur.com/EgKl2X6dqdsfqdf.jpg',
                     description: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem'
                 }
