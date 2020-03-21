@@ -1,22 +1,21 @@
-# b-hero-fron
+# B-HERO app
+this is a blood donation app made with Vue js and Vuetify
+
+
+## Design files
+original design by Jitu Raut [here](https://uibundle.com/products/b-hero-blood-donation-app-free-ui-kit)
+
+[XD link for developers](https://xd.adobe.com/view/b7d22547-8382-4973-769d-659d40c080ae-c1e3/grid)
+ 
+## backend project
+
+> not started yet
 
 ## Project setup
 ```
 yarn install
-```
-
-### Compiles and hot-reloads for development
-```
 yarn serve
-```
-
-### Compiles and minifies for production
-```
 yarn build
-```
-
-### Lints and fixes files
-```
 yarn lint
 ```
 
