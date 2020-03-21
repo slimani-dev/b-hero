@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from "@/Pages/Home";
 
 Vue.use(VueRouter)
 
@@ -8,7 +8,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
   },
   {
     path: '/about',
@@ -22,6 +22,9 @@ const routes = [
 
 const router = new VueRouter({
   mode: 'history',
+  scrollBehavior() {
+    return window.scrollTo({top: 0, behavior: 'smooth'});
+  },
   base: process.env.BASE_URL,
   routes
 })
