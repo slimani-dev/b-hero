@@ -6,7 +6,7 @@
         }"
                 class="intro"
                 justify="center">
-            <div class="intro-image d-flex justify-center align-end">
+            <div class="intro-image d-flex justify-center align-center">
                 <transition name="fade" mode="out-in">
                     <!--suppress HtmlRequiredAltAttribute -->
                     <img key="1" v-if="page === 1" src="../assets/img/intro/blood-transfusion-1.svg" width="210px">
@@ -73,8 +73,8 @@ export default {
 
     .intro-image {
         background-image: url("../assets/img/intro/circle.svg");
-        background-position: center bottom;
-        height: calc(100vh - 350px);
+        background-position: center center;
+        height: calc(100vh - 250px);
         width: 100%;
     }
 
