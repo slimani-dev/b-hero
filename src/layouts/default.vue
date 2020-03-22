@@ -181,6 +181,7 @@ export default {
         drawer: null,
         items: [
             {icon: 'mdi-star', text: 'Intro', link: '/intro'},
+            {icon: 'mdi-login', text: 'Login', link: {name : 'Login'}},
             {icon: 'mdi-contacts', text: 'Contacts'},
             {icon: 'mdi-history', text: 'Frequently contacted'},
             {icon: 'mdi-content-copy', text: 'Duplicates'},
