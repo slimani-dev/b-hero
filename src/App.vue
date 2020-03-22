@@ -1,7 +1,9 @@
 <template>
-  <component :is="layout">
-    <router-view/>
-  </component>
+    <component :is="layout">
+        <vue-page-transition>
+            <router-view/>
+        </vue-page-transition>
+    </component>
 </template>
 
 <script>
@@ -18,9 +20,9 @@ export default {
 </script>
 
 <style>
-  body {
-    font-family: Montserrat, Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+    body {
+        font-family: Montserrat, Avenir, Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 </style>
