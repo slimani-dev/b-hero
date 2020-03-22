@@ -11,6 +11,7 @@ jobs:
     name: Production
     runs-on: ubuntu-latest
     steps:
+      - name: build with yarn
       - uses: actions/checkout@v1
       - uses: borales/actions-yarn@v2.0.0
         with:
@@ -21,13 +22,12 @@ jobs:
       #- uses: borales/actions-yarn@v2.0.0
       #  with:
       #   cmd: test # will run `yarn test` command
-      - name: copy file via ssh password
-        uses: appleboy/scp-action@master
+      - name: copy file via ssh
+        uses: horochx/deploy-via-scp@master
         with:
+          local: dist # eg: dist
+          remote: ${{ secrets.PATH }}
           host: ${{ secrets.SERVER }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: 22
-          source: "dist/*"
-          target: ${{ secrets.PATH }}
-      
+          port: ${{ secrets.PORT }}
+          user: ${{ secrets.USERNAME }}
+          key: ${{ secrets.NextGN_SSH }}
