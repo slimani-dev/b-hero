@@ -42,51 +42,6 @@
 
         </v-card>
 
-        <!--Head-->
-        <!--<v-row class="pink px-5 py-3 mb-2 elevation-2">
-            <v-col cols="12">
-                <v-card dark class="pink lighten-1  pa-5" elevation="0">
-                    <v-row class="align-center" no-gutters>
-                        <v-col cols="6" class="text-center">
-                            <h2 style="letter-spacing: 2.53px;">120966</h2>
-                            <p class="ma-0">Donor's</p>
-                        </v-col>
-
-                        <v-col cols="6">
-                            <v-btn color="white"
-                                   block
-                                   class="pink&#45;&#45;text font-weight-bold"
-                                   max-height="40"
-                                   rounded>
-                                FIND DONOR
-                            </v-btn>
-                        </v-col>
-                    </v-row>
-                </v-card>
-            </v-col>
-            <v-col cols="12">
-                <v-card dark class="pink lighten-1  pa-5" elevation="0">
-                    <v-row class="align-center" no-gutters>
-                        <v-col cols="6" class="text-center">
-                            <h2 style="letter-spacing: 2.53px;">20976</h2>
-                            <p class="ma-0">Request</p>
-                        </v-col>
-
-                        <v-col cols="6">
-                            <v-btn color="white"
-                                   block
-                                   class="pink&#45;&#45;text font-weight-bold"
-                                   max-height="40"
-                                   rounded>
-                                SEE REQUEST
-                            </v-btn>
-                        </v-col>
-                    </v-row>
-                </v-card>
-            </v-col>
-        </v-row>-->
-        <!--Head ! -->
-
         <!--Add Post-->
         <v-card class="white px-5 py-3 mb-2 d-flex flex-row align-center justify-space-between">
             <h2 class="font-weight-bold black--text body-2 ma-0">EXPLORE LATEST FEED</h2>
@@ -142,13 +97,14 @@
                 <v-btn icon elevation="1"
                        :color="post.liked ? 'pink': ''"
                        @click="post.liked = !post.liked">
-                    <v-icon>mdi-heart</v-icon>
+                    <v-icon v-if="post.liked">mdi-heart</v-icon>
+                    <v-icon v-else>mdi-heart-outline</v-icon>
                 </v-btn>
                 <v-btn icon elevation="1">
                     <v-icon>mdi-share-variant</v-icon>
                 </v-btn>
                 <v-btn icon elevation="1">
-                    <v-icon>mdi-comment</v-icon>
+                    <v-icon>mdi-comment-outline</v-icon>
                 </v-btn>
             </v-card-actions>
             <v-card-text class="text--primary caption">
