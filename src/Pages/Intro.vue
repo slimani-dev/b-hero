@@ -33,6 +33,23 @@
                     </div>
                 </transition>
             </div>
+            <div class="intro-index w-100">
+                <div class="d-flex align-center justify-space-between">
+                    <v-btn icon class="ml-5"
+                           :disabled="page<2"
+                           @click="swipe(-1)">
+                        <v-icon color="white">mdi-arrow-left-drop-circle-outline</v-icon>
+                    </v-btn>
+                    <div class="d-flex align-center justify-space-between">
+                        <div v-for="i in 3" :key="i" class="index" :class="page === i ? 'active-index' : 'inactive-index'"/>
+                    </div>
+                    <v-btn icon class="mr-5"
+                            @click="swipe(1)">
+                        <v-icon v-if="page<3" color="white">mdi-arrow-right-drop-circle-outline</v-icon>
+                        <v-icon v-else color="white">mdi-check-circle-outline</v-icon>
+                    </v-btn>
+                </div>
+            </div>
         </v-card>
     </v-container>
 </template>
@@ -167,6 +184,79 @@ export default {
         font-size: 15px;
         color: #FFFFFF;
         opacity: 1;
+    }
+
+    .intro-index {
+        width: 100%;
+        position: fixed;
+        bottom: 30px;
+
+        div {
+
+            .btn {
+                width: 120px;
+                height: 40px;
+                text-transform: uppercase;
+                text-align: center;
+                font-weight: lighter;
+                font-size: 14px;
+                letter-spacing: 0.03px;
+                color: #FFFFFF;
+                opacity: 1;
+            }
+
+            .btn-hidden {
+                visibility: hidden;
+            }
+
+            .btn-right {
+                border-radius: 20px 0 0 20px;
+            }
+
+            .btn-left {
+                border-radius: 0 20px 20px 0;
+            }
+
+            div {
+                width: 40px;
+            }
+        }
+    }
+
+    .index {
+        height: 6px;
+        background-color: white;
+        border-radius: 3px;
+    }
+
+    .active-index {
+        animation-name: active-index-anim;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes active-index-anim {
+        0% {
+            width: 6px;
+        }
+        100% {
+            width: 15px;
+        }
+    }
+
+    .inactive-index {
+        animation-name: inactive-index-anim;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes inactive-index-anim {
+        0% {
+            width: 15px;
+        }
+        100% {
+            width: 6px;
+        }
     }
 
 </style>
