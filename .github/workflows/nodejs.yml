@@ -24,7 +24,7 @@ jobs:
       - name: copy file via ssh
         uses: horochx/deploy-via-scp@master
         with:
-          local: dist # eg: dist
+          local: dist/* # eg: dist
           remote: ${{ secrets.PATH }}
           host: ${{ secrets.SERVER }}
           port: ${{ secrets.PORT }}
