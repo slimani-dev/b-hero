@@ -6,14 +6,7 @@
         }"
                 class="intro"
                 justify="center">
-            <div class="intro-image d-flex justify-center align-center">
-                <transition name="fade" mode="out-in">
-                    <!--suppress HtmlRequiredAltAttribute -->
-                    <img key="1" v-if="page === 1" src="../assets/img/intro/blood-transfusion-1.svg" width="210px">
-                    <img key="2" v-if="page === 2" src="../assets/img/intro/blood-transfusion-2.svg" width="210px">
-                    <img key="3" v-if="page === 3" src="../assets/img/intro/blood-bag.svg" width="210px">
-                </transition>
-            </div>
+            <IntroImages :page="page"/>
             <div class="intro-bottom d-flex flex-column align-center justify-center" :id="position">
                 <transition name="fade" mode="out-in">
                     <div key="1" v-if="page === 1">
@@ -56,8 +49,11 @@
 
 <script>
 
+import IntroImages from "@/components/Intro/Images";
+
 export default {
     name: "Intro",
+    components: {IntroImages},
     data: () => ({
         oldPage: 1,
         page: 1,
@@ -86,13 +82,6 @@ export default {
 <style scoped lang="scss">
     .intro {
         height: 100vh;
-    }
-
-    .intro-image {
-        background-image: url("../assets/img/intro/circle.svg");
-        background-position: center center;
-        height: calc(100vh - 250px);
-        width: 100%;
     }
 
     .fade-enter-active,

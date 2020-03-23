@@ -9,13 +9,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: borales/actions-yarn@v2.0.0
+      - name: 'install dependencies'
+        uses: borales/actions-yarn@v2.0.0
         with:
           cmd: install
-      - uses: borales/actions-yarn@v2.0.0
+      - name: 'build with yarn'
+        uses: borales/actions-yarn@v2.0.0
         with:
           cmd: build
-      - uses: horochx/deploy-via-scp@master
+      - name: 'run unit tests'
+          uses: borales/actions-yarn@v2.0.0
+          with:
+            cmd: test:unit
+      - name: 'upload files to server using ssh'
+        uses: horochx/deploy-via-scp@master
         with:
           local: dist/*
           remote: ${{ secrets.PATH }}
