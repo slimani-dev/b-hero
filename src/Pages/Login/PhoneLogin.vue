@@ -28,7 +28,7 @@
                            @click="dialog = false">
                         <v-icon>mdi-arrow-left</v-icon>
                     </v-btn>
-                    <span class="font-weight-bold">Confirm verification code</span>
+                    <span class="font-weight-bold flex-fill">Enter your Code</span>
                 </v-card-title>
                 <v-card-text>
                     <v-form ref="verificationCodeForm"
@@ -43,7 +43,7 @@
                                 required
                         ></v-text-field>
                     </v-form>
-                    <small v-if="countDown">you can resend the OTP in {{countDown}}s</small>
+                    <small>You can resend the OTP <span v-if="countDown">in {{countDown}}s</span></small>
                 </v-card-text>
                 <v-card-actions>
                     <v-row no-gutters class="mb-3">
@@ -87,7 +87,7 @@ export default {
             v => !!v || 'verification code is required',
             v => /^[0-9]{6}$/.test(v) || 'Verification code must be valid'
         ],
-        dialog: true,
+        dialog: false,
         countDown: 20,
         verificationCodeLoading: false
     }),
