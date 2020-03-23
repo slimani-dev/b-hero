@@ -1,0 +1,122 @@
+<template>
+    <v-container class="pa-5">
+        <h2>Verify Number</h2>
+        <v-form ref="form"
+                v-model="valid"
+                lazy-validation
+                @submit.prevent="validate">
+            <v-text-field v-model="phone"
+                          :rules="phoneRules"
+                          label="Phone"
+                          required
+                          class="mt-4"/>
+
+            <v-btn color="pink"
+                   rounded
+                   type="submit"
+                   dark
+                   block
+                   class="mt-4">
+                GET OTP
+            </v-btn>
+        </v-form>
+        <v-dialog v-model="dialog" persistent max-width="600px">
+            <v-card>
+                <v-card-title>
+                    <span class="headline">Confirm verification code</span>
+                </v-card-title>
+                <v-card-text>
+                    <v-form ref="verificationCodeForm"
+                            v-model="verificationCodeValid"
+                            lazy-validation
+                            @submit.prevent="verifyCode">
+                        <v-text-field
+                                v-model="verificationCode"
+                                :rules="verificationCodeRules"
+                                :counter="6"
+                                label="Verification Code"
+                                required
+                        ></v-text-field>
+                    </v-form>
+                    <small v-if="countDown">you can resend the OTP in {{countDown}}s</small>
+                </v-card-text>
+                <v-card-actions>
+                    <v-row no-gutters class="mb-3">
+                        <v-col cols="6">
+                            <v-btn color="pink" text @click="resend" :disabled="countDown > 0">Re-send</v-btn>
+                        </v-col>
+                        <v-col cols="6">
+                            <v-btn color="pink" rounded dark block class="ml-n3" @click="verifyCode">OK</v-btn>
+                        </v-col>
+                    </v-row>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
+    </v-container>
+</template>
+
+<script>
+
+import {serverBus} from '@/main';
+
+export default {
+    name: "PhoneLogin",
+    data: () => ({
+        valid: true,
+        verificationCodeValid: true,
+        phone: '',
+        verificationCode: '',
+        phoneRules: [
+            v => !!v || 'Phone is required',
+            v => /^(([+]*213)|0)[5-7][0-9]{8}$/.test(v) || 'Phone must be valid',
+        ],
+        verificationCodeRules: [
+            v => !!v || 'verification code is required',
+            v => /^[0-9]{6}$/.test(v) || 'Verification code must be valid'
+        ],
+        dialog: false,
+        countDown: 20,
+    }),
+    methods: {
+        validate() {
+            if (this.$refs.form.validate()) {
+                this.dialog = true
+                this.countDownTimer()
+            }
+        },
+        resend() {
+            this.$refs.verificationCodeForm.resetValidation()
+            this.verificationCodeRules = this.verificationCodeRules.filter((r,i) => i < 2)
+            this.countDown = 20
+            this.countDownTimer()
+        },
+        countDownTimer() {
+            if (this.countDown > 0) {
+                setTimeout(() => {
+                    this.countDown -= 1
+                    this.countDownTimer()
+                }, 1000)
+            }
+        },
+        verifyCode() {
+            //TODO change the code rule
+            this.verificationCodeRules[2] = (v => v === '555666' || 'wrong verification code')
+            if(this.$refs.verificationCodeForm.validate()) {
+                this.$router.push('/')
+            }
+        }
+    },
+    mounted() {
+        serverBus.$emit('navProps', {
+            title: '',
+            color: 'white',
+            dark: false,
+            iconColor: 'pink'
+        })
+    }
+}
+</script>
+
+<style scoped>
+
+</style>

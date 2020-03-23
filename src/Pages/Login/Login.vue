@@ -2,7 +2,7 @@
     <v-container fluid class="pa-0 pink fill-height">
         <div class="w-100 d-flex">
             <!--suppress CheckImageSize -->
-            <img src="../assets/img/login/blood-trans.png" alt="" width="90%" class="mx-auto">
+            <img src="../../assets/img/login/blood-trans.png" alt="" width="90%" class="mx-auto">
         </div>
 
         <div class="login-wrapper">
@@ -17,7 +17,7 @@
                     Google
                 </v-btn>
                 <v-btn block rounded class=" btn-login btn-number mt-5"
-                @click="$router.push('/')">
+                @click="$router.push({name: 'PhoneLogin'})">
                     Mobile Number
                 </v-btn>
             </div>
@@ -43,7 +43,7 @@ export default {
         bottom: 0;
         margin-left: -1%;
         width: 102%;
-        background: url("../assets/img/login/bg.svg") no-repeat center top;
+        background: url("../../assets/img/login/bg.svg") no-repeat center top;
         background-size: cover;
 
         h1 {
@@ -71,21 +71,21 @@ export default {
             }
 
             .btn-facebook {
-                background-image: url('../assets/img/login/facebook-btn-bg.svg');
+                background-image: url('../../assets/img/login/facebook-btn-bg.svg');
                 background-position: center center;
                 background-size: cover;
                 color: #FFFFFF;
             }
 
             .btn-google {
-                background-image: url('../assets/img/login/google-btn-bg.svg');
+                background-image: url('../../assets/img/login/google-btn-bg.svg');
                 background-position: center center;
                 background-size: cover;
                 border: 1px solid #C9C9C9;
             }
 
             .btn-number {
-                background-image: url('../assets/img/login/number-btn-bg.svg');
+                background-image: url('../../assets/img/login/number-btn-bg.svg');
                 background-position: center center;
                 background-size: cover;
                 border: 1px solid #C9C9C9;
