@@ -82,9 +82,9 @@
                 <v-icon>mdi-magnify</v-icon>
             </v-btn>
         </v-app-bar>
-            <v-content>
-                <slot></slot>
-            </v-content>
+        <v-content>
+            <slot></slot>
+        </v-content>
         <v-btn bottom
                color="pink"
                dark
@@ -171,6 +171,42 @@
 </template>
 
 <script>
+
+const dev = process.env.NODE_ENV === 'development'
+
+const devMenu = [
+    {icon: 'mdi-contacts', text: 'Contacts'},
+    {icon: 'mdi-history', text: 'Frequently contacted'},
+    {icon: 'mdi-content-copy', text: 'Duplicates'},
+    {
+        icon: 'mdi-chevron-up',
+        'icon-alt': 'mdi-chevron-down',
+        text: 'Labels',
+        model: true,
+        children: [
+            {icon: 'mdi-plus', text: 'Create label'},
+        ],
+    },
+    {
+        icon: 'mdi-cvron-up',
+        'icon-alt': 'mdi-chevron-down',
+        text: 'More',
+        model: false,
+        children: [
+            {text: 'Import'},
+            {text: 'Export'},
+            {text: 'Print'},
+            {text: 'Undo changes'},
+            {text: 'Other contacts'},
+        ],
+    },
+    {icon: 'mdi-math-compass', text: 'Settings'},
+    {icon: 'mdi-message', text: 'Send feedback'},
+    {icon: 'mdi-help-circle', text: 'Help'},
+    {icon: 'mdi-cellphone-link', text: 'App downloads'},
+    {icon: 'mdi-keyboard', text: 'Go to the old version'},
+]
+
 export default {
     name: "default",
     props: {
@@ -181,37 +217,8 @@ export default {
         drawer: null,
         items: [
             {icon: 'mdi-star', text: 'Intro', link: '/intro'},
-            {icon: 'mdi-login', text: 'Login', link: {name : 'Login'}},
-            {icon: 'mdi-contacts', text: 'Contacts'},
-            {icon: 'mdi-history', text: 'Frequently contacted'},
-            {icon: 'mdi-content-copy', text: 'Duplicates'},
-            {
-                icon: 'mdi-chevron-up',
-                'icon-alt': 'mdi-chevron-down',
-                text: 'Labels',
-                model: true,
-                children: [
-                    {icon: 'mdi-plus', text: 'Create label'},
-                ],
-            },
-            {
-                icon: 'mdi-cvron-up',
-                'icon-alt': 'mdi-chevron-down',
-                text: 'More',
-                model: false,
-                children: [
-                    {text: 'Import'},
-                    {text: 'Export'},
-                    {text: 'Print'},
-                    {text: 'Undo changes'},
-                    {text: 'Other contacts'},
-                ],
-            },
-            {icon: 'mdi-math-compass', text: 'Settings'},
-            {icon: 'mdi-message', text: 'Send feedback'},
-            {icon: 'mdi-help-circle', text: 'Help'},
-            {icon: 'mdi-cellphone-link', text: 'App downloads'},
-            {icon: 'mdi-keyboard', text: 'Go to the old version'},
+            {icon: 'mdi-login', text: 'Login', link: {name: 'Login'}},
+            {icon: 'mdi-phone', text: 'PhoneLogin', link: {name: 'PhoneLogin'}},
         ],
     }),
     methods: {
@@ -225,6 +232,11 @@ export default {
             } else if (child.link) {
                 this.$router.push(child.link)
             }
+        }
+    },
+    beforeMount() {
+        if(dev) {
+            this.items = this.items.concat(devMenu)
         }
     }
 }
