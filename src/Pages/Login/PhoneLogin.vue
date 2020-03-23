@@ -46,7 +46,15 @@
                             <v-btn color="pink" text @click="resend" :disabled="countDown > 0">Re-send</v-btn>
                         </v-col>
                         <v-col cols="6">
-                            <v-btn color="pink" rounded dark block class="ml-n3" @click="verifyCode">OK</v-btn>
+                            <v-btn color="pink"
+                                   rounded
+                                   dark
+                                   block
+                                   class="ml-n3"
+                                   @click="verifyCode"
+                                   :loading="verificationCodeLoading">
+                                OK
+                            </v-btn>
                         </v-col>
                     </v-row>
                 </v-card-actions>
@@ -76,6 +84,7 @@ export default {
         ],
         dialog: false,
         countDown: 20,
+        verificationCodeLoading: false
     }),
     methods: {
         validate() {
@@ -86,7 +95,7 @@ export default {
         },
         resend() {
             this.$refs.verificationCodeForm.resetValidation()
-            this.verificationCodeRules = this.verificationCodeRules.filter((r,i) => i < 2)
+            this.verificationCodeRules = this.verificationCodeRules.filter((r, i) => i < 2)
             this.countDown = 20
             this.countDownTimer()
         },
@@ -99,10 +108,17 @@ export default {
             }
         },
         verifyCode() {
-            //TODO change the code rule
-            this.verificationCodeRules[2] = (v => v === '555666' || 'wrong verification code')
-            if(this.$refs.verificationCodeForm.validate()) {
-                this.$router.push('/')
+            //TODO change the code rule (555666) and remove the timer
+            if (this.$refs.verificationCodeForm.validate()) {
+                this.verificationCodeLoading = true
+                setTimeout(() => {
+                    this.verificationCodeRules[2] = (v => v === '555666' || 'wrong verification code')
+                    if (this.$refs.verificationCodeForm.validate()) {
+                        this.$router.push('/')
+                    } else {
+                        this.verificationCodeLoading = false
+                    }
+                }, 2000)
             }
         }
     },
