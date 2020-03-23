@@ -22,8 +22,13 @@
         </v-form>
         <v-dialog v-model="dialog" persistent max-width="600px">
             <v-card>
-                <v-card-title>
-                    <span class="headline">Confirm verification code</span>
+                <v-card-title class="d-flex flex-row pl-2">
+                    <v-btn icon
+                           color="pink"
+                           @click="dialog = false">
+                        <v-icon>mdi-arrow-left</v-icon>
+                    </v-btn>
+                    <span class="font-weight-bold">Confirm verification code</span>
                 </v-card-title>
                 <v-card-text>
                     <v-form ref="verificationCodeForm"
@@ -82,7 +87,7 @@ export default {
             v => !!v || 'verification code is required',
             v => /^[0-9]{6}$/.test(v) || 'Verification code must be valid'
         ],
-        dialog: false,
+        dialog: true,
         countDown: 20,
         verificationCodeLoading: false
     }),
