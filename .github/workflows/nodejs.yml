@@ -18,8 +18,8 @@ jobs:
         with:
           cmd: build
       - name: 'run unit tests'
-          uses: borales/actions-yarn@v2.0.0
-          with:
+        uses: borales/actions-yarn@v2.0.0
+        with:
             cmd: test:unit
       - name: 'upload files to server using ssh'
         uses: horochx/deploy-via-scp@master
