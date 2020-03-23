@@ -25,7 +25,7 @@
                 <v-card-title class="d-flex flex-row pl-2">
                     <v-btn icon
                            color="pink"
-                           @click="dialog = false">
+                           @click="closeDialog">
                         <v-icon>mdi-arrow-left</v-icon>
                     </v-btn>
                     <span class="font-weight-bold flex-fill">Enter your Code</span>
@@ -92,6 +92,10 @@ export default {
         verificationCodeLoading: false
     }),
     methods: {
+        closeDialog() {
+            this.dialog = false
+            this.countDown = 0;
+        },
         validate() {
             if (this.$refs.form.validate()) {
                 this.dialog = true
