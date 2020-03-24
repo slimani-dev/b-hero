@@ -9,8 +9,8 @@
                    @click="$router.go(-1)">
                 <v-icon>mdi-arrow-left</v-icon>
             </v-btn>
-            <v-toolbar-title>
-                <span>{{ title }}</span>
+            <v-toolbar-title class="pa-0 font-weight-bold">
+                {{ title }}
             </v-toolbar-title>
             <v-spacer/>
             <LinkBtn v-if="leftBtn.type === 'link'" :color="leftBtn.color" :link="leftBtn.link"/>

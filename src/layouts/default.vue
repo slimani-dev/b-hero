@@ -1,5 +1,5 @@
 <template>
-    <v-app id="inspire">
+    <div>
         <v-navigation-drawer v-model="drawer"
                              :clipped="$vuetify.breakpoint.lgAndUp"
                              app
@@ -167,7 +167,7 @@
                 </v-card-actions>
             </v-card>
         </v-dialog>
-    </v-app>
+    </div>
 </template>
 
 <script>
@@ -219,6 +219,7 @@ export default {
             {icon: 'mdi-star', text: 'Intro', link: '/intro'},
             {icon: 'mdi-login', text: 'Login', link: {name: 'Login'}},
             {icon: 'mdi-phone', text: 'PhoneLogin', link: {name: 'PhoneLogin'}},
+            {icon: 'mdi-account-edit', text: 'Edit Account', link: {name: 'EditProfile'}},
         ],
     }),
     methods: {

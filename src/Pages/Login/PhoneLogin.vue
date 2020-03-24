@@ -123,7 +123,7 @@ export default {
                 setTimeout(() => {
                     this.verificationCodeRules[2] = (v => v === '555666' || 'wrong verification code')
                     if (this.$refs.verificationCodeForm.validate()) {
-                        this.$router.push('/')
+                        this.$router.push({name: 'EditProfile'})
                     } else {
                         this.verificationCodeLoading = false
                     }
