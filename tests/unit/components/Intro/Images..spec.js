@@ -18,9 +18,9 @@ describe('Intro', () => {
                 expect(image.attributes()['src']).not.toBeNull()
             })
 
-            it('should change the image on page chnage', async () => {
+            it('should change the image on page change', async () => {
 
-                let wrapper = shallowMount(Images, {
+                const wrapper = shallowMount(Images, {
                     propsData: {
                         page: 1
                     }
@@ -30,10 +30,10 @@ describe('Intro', () => {
 
                 wrapper.setProps({page: 2})
 
-                await wrapper.vm.$nextTick().then(() => {
-                    let image2 = wrapper.find('img').attributes()['src']
-                    expect(image1).not.toEqual(image2)
-                })
+                await wrapper.vm.$nextTick()
+
+                let image2 = wrapper.find('img').attributes()['src']
+                expect(image1).not.toEqual(image2)
 
             })
         }
