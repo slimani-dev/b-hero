@@ -4,6 +4,7 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
+// noinspection ES6CheckImport
 import VuePageTransition from 'vue-page-transition'
 
 
