@@ -1,5 +1,5 @@
 <template>
-    <v-container fluid class="pt-0 px-0 grey lighten-4" style="max-width: 700px">
+    <v-container fluid class="pt-0 px-0 grey lighten-4">
 
         <v-card class="pink pa-5 mb-2 elevation-2">
             <v-card dark class="pink lighten-1  pa-5 mb-5">

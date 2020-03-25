@@ -1,8 +1,8 @@
 <template>
     <v-container class="pt-0 px-0 grey lighten-4">
-        <v-card class="mb-1 ">
+        <v-card class="mb-1" :class="$vuetify.breakpoint.lgAndUp ? 'mt-5': ''">
             <div class="pa-5 d-flex flex-row">
-                <div class="user-avatar mr-5 blue-grey lighten-5 d-flex justify-center align-center">
+                <div class="user-avatar  mr-5 blue-grey lighten-5 d-flex justify-center align-center">
                     <img src="../../assets/img/avatar/dafual-user-avatar.png" alt="">
                 </div>
                 <div class="d-flex flex-column flex-grow-1">
@@ -25,9 +25,9 @@
                     <div class="d-flex">
                         <v-btn color="pink" elevation="0" small class="flex-grow-1 mr-2" dark rounded>
                             <v-icon small class="mr-1">mdi-star-circle</v-icon>
-                            HERO DONOR
+                            HERO
                         </v-btn>
-                        <v-btn color="pink" small outlined dark rounded>MY ACCOUNT</v-btn>
+                        <v-btn color="pink" class="flex-grow-1" small outlined dark rounded>MY ACCOUNT</v-btn>
                     </div>
                 </div>
             </div>
@@ -137,13 +137,13 @@ export default {
 
 <style scoped lang="scss">
     .user-avatar {
-        height: 100px;
-        width: 100px;
+        height: 84px;
+        width: 84px;
         border-radius: 50%;
 
         img {
-            height: 91px;
-            width: 91px;
+            height: 74px;
+            width: 74px;
         }
     }
 </style>

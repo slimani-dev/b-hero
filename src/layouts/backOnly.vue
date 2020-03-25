@@ -1,9 +1,10 @@
 <template>
     <v-app id="inspire">
         <v-app-bar app
-                   elevation="0"
+                   :elevation="$vuetify.breakpoint.lgAndUp ? 4 : '' "
                    :dark="dark"
-                   :color="navColor">
+                   :color="navColor"
+                   :elevate-on-scroll="!$vuetify.breakpoint.lgAndUp">
             <v-btn icon
                    :color="iconColor"
                    @click="$router.go(-1)">
@@ -15,7 +16,7 @@
             <v-spacer/>
             <LinkBtn v-if="leftBtn.type === 'link'" :color="leftBtn.color" :text="leftBtn.text" :link="leftBtn.link"/>
         </v-app-bar>
-        <v-content>
+        <v-content class="grey lighten-5">
             <slot></slot>
         </v-content>
     </v-app>
@@ -50,3 +51,8 @@ export default {
 }
 </script>
 
+<style>
+    .container {
+        max-width: 700px
+    }
+</style>
