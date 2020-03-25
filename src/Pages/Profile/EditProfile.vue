@@ -1,6 +1,6 @@
 <template>
-    <v-container class="pt-0 px-0">
-        <v-card class="mb-1 pa-5" :class="$vuetify.breakpoint.lgAndUp ? 'mt-5': ''">
+    <v-container class="pa-0">
+        <v-card class="pa-5" :class="$vuetify.breakpoint.lgAndUp ? 'mt-5': ''">
             <v-form ref="form"
                     v-model="valid"
                     lazy-validation
