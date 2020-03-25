@@ -6,7 +6,6 @@
         </div>
 
         <div class="login-wrapper">
-
             <div class="d-flex align-center flex-column h-100 pt-5">
                 <h1 class="my-5">LOGIN & REGISTER</h1>
 

@@ -1,9 +1,13 @@
 <template>
-    <component :is="layout">
+    <v-app id="inspire">
         <vue-page-transition>
-            <router-view/>
+            <component :is="layout">
+                <vue-page-transition>
+                    <router-view/>
+                </vue-page-transition>
+            </component>
         </vue-page-transition>
-    </component>
+    </v-app>
 </template>
 
 <script>

@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from "@/Pages/Home";
 
+import profile from './profile'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -17,7 +19,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "intro" */ '@/Pages/Intro'),
+    component: () => import('@/Pages/Intro'),
     meta: {
       layout: 'full',
       transition: 'fade-in-down'
@@ -26,10 +28,7 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "intro" */ '@/Pages/Login/Login'),
+    component: () => import('@/Pages/Login/Login'),
     meta: {
       layout: 'full',
       transition: 'fade-in-down'
@@ -38,24 +37,12 @@ const routes = [
   {
     path: '/phoneLogin',
     name: 'PhoneLogin',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "intro" */ '@/Pages/Login/PhoneLogin'),
+    component: () => import('@/Pages/Login/PhoneLogin'),
     meta: {
       layout: 'back-only',
       transition: 'fade-in-down'
     }
   },
-  {
-    path: '/profile',
-    name: 'MyProfile',
-    component: () => import( '@/Pages/Profile/ProfileShow'),
-    meta: {
-      layout: 'back-only',
-      transition: 'fade-in-down'
-    }
-  }
 ]
 
 const router = new VueRouter({
@@ -64,7 +51,7 @@ const router = new VueRouter({
     return window.scrollTo({top: 0, behavior: 'smooth'});
   },
   base: process.env.BASE_URL,
-  routes
+  routes: routes.concat(profile)
 })
 
 export default router
