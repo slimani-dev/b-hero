@@ -1,5 +1,12 @@
 # B-HERO app
-this is a blood donation app made with Vue js and Vuetify
+an open source and free blood donation app made with Vue js and Vuetify
+sposored by [NextGN](https://nextgn.dev/)
+
+![](.github/social-preview.png)
+
+# Todo list
+
+check [project](https://github.com/moh-slimani/b-hero/projects/1)
 
 
 ## Design files
