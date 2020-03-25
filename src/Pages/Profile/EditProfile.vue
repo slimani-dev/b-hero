@@ -1,94 +1,96 @@
 <template>
-    <v-container class="pa-5">
-        <v-form ref="form"
-                v-model="valid"
-                lazy-validation
-                @submit.prevent="validate">
-            <v-text-field v-model="name"
-                          :rules="nameRules"
-                          label="Full Name"
-                          filled
-                          single-line
-                          clearable
-                          rounded
-                          dense
-                          required/>
+    <v-container class="pt-0 px-0">
+        <v-card class="mb-1 pa-5" :class="$vuetify.breakpoint.lgAndUp ? 'mt-5': ''">
+            <v-form ref="form"
+                    v-model="valid"
+                    lazy-validation
+                    @submit.prevent="validate">
+                <v-text-field v-model="name"
+                              :rules="nameRules"
+                              label="Full Name"
+                              filled
+                              single-line
+                              clearable
+                              rounded
+                              dense
+                              required/>
 
-            <v-text-field v-model="email"
-                          :rules="emailRules"
-                          label="E-mail"
-                          filled
-                          single-line
-                          clearable
-                          rounded
-                          dense
-                          required/>
+                <v-text-field v-model="email"
+                              :rules="emailRules"
+                              label="E-mail"
+                              filled
+                              single-line
+                              clearable
+                              rounded
+                              dense
+                              required/>
 
-            <h4>Gander</h4>
+                <h4>Gander</h4>
 
-            <div class="d-flex my-4 justify-center align-center w-100">
-                <div class="d-flex flex-column align-center grey--text">
-                    <img class="avatar-image" src="../../assets/img/avatar/man-gray.svg" alt="">
-                    Male
+                <div class="d-flex my-4 justify-center align-center w-100">
+                    <div class="d-flex flex-column align-center grey--text">
+                        <img class="avatar-image" src="../../assets/img/avatar/man-gray.svg" alt="">
+                        Male
+                    </div>
+                    <div class="mx-5 divider mb-5"></div>
+                    <div class="d-flex flex-column align-center pink--text">
+                        <img class="avatar-image" src="../../assets/img/avatar/woman-red.svg" alt="">
+                        Female
+                    </div>
                 </div>
-                <div class="mx-5 divider mb-5"></div>
-                <div class="d-flex flex-column align-center pink--text">
-                    <img class="avatar-image" src="../../assets/img/avatar/woman-red.svg" alt="">
-                    Female
-                </div>
-            </div>
 
 
-            <h4>Address</h4>
+                <h4>Address</h4>
 
-            <v-text-field class="mt-4"
-                          v-model="address"
-                          label="Address"
+                <v-text-field class="mt-4"
+                              v-model="address"
+                              label="Address"
+                              filled
+                              single-line
+                              clearable
+                              rounded
+                              dense
+                              required/>
+
+                <v-select :items="items"
                           filled
                           single-line
-                          clearable
                           rounded
                           dense
-                          required/>
+                          label="State"/>
 
-            <v-select :items="items"
-                      filled
-                      single-line
-                      rounded
-                      dense
-                      label="State"/>
+                <v-select :items="items"
+                          filled
+                          single-line
+                          rounded
+                          dense
+                          label="Town"/>
 
-            <v-select :items="items"
-                      filled
-                      single-line
-                      rounded
-                      dense
-                      label="Town"/>
+                <h4 class="mb-5">Select Blood Group</h4>
 
-            <h4 class="mb-5">Select Blood Group</h4>
+                <div class="w-100">
+                    <v-btn v-for="group in bloodGroups"
+                           :key="group"
+                           icon
+                           class="mr-5 mb-5"
+                           :class="group === bloodGroup ? 'pink': 'pink--text'"
+                           outlined
+                           :dark="group === bloodGroup"
+                           @click="bloodGroup = group">
+                        {{ group }}
+                    </v-btn>
+                </div>
 
-            <div class="w-100">
-                <v-btn v-for="group in bloodGroups"
-                       :key="group"
-                       icon
-                       class="mr-5 mb-5"
-                       :class="group === bloodGroup ? 'pink': 'pink--text'"
-                       outlined
-                       :dark="group === bloodGroup"
-                       @click="bloodGroup = group">
-                    {{ group }}
+                <v-btn color="pink"
+                       rounded
+                       type="submit"
+                       dark
+                       :loading="loading"
+                       block>
+                    Save
                 </v-btn>
-            </div>
-
-            <v-btn color="pink"
-                   rounded
-                   type="submit"
-                   dark
-                   :loading="loading"
-                   block>
-                Save
-            </v-btn>
-        </v-form>
+            </v-form>
+        </v-card>
     </v-container>
 </template>
 
@@ -97,6 +99,9 @@ import {serverBus} from "@/main";
 
 export default {
     name: "EditProfile",
+    props: {
+        mt: Boolean
+    },
     data: () => {
         return {
             valid: true,
@@ -119,7 +124,7 @@ export default {
     },
     methods: {
         validate() {
-            if(this.$refs.form.validate()) {
+            if (this.$refs.form.validate()) {
                 this.loading = true
             }
         }
