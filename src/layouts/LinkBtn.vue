@@ -1,5 +1,5 @@
 <template>
-    <v-btn :color="color" :text="text" @click="goToLink">More</v-btn>
+    <v-btn :color="color" text @click="goToLink">{{ text }}</v-btn>
 </template>
 <script>
 export default {
@@ -14,8 +14,8 @@ export default {
             required: true
         },
         text: {
-            type: Boolean,
-            default: true
+            type: String,
+            default: 'More'
         }
     },
     methods: {

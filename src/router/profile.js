@@ -7,6 +7,16 @@ const routes = [
             layout: 'back-only',
             transition: 'fade-in-down'
         }
+    },
+
+    {
+        path: '/profile',
+        name: 'MyProfile',
+        component: () => import( '@/Pages/Profile/ProfileShow'),
+        meta: {
+            layout: 'back-only',
+            transition: 'fade-in-up'
+        }
     }
 ]
 

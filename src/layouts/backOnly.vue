@@ -13,7 +13,7 @@
                 {{ title }}
             </v-toolbar-title>
             <v-spacer/>
-            <LinkBtn v-if="leftBtn.type === 'link'" :color="leftBtn.color" :link="leftBtn.link"/>
+            <LinkBtn v-if="leftBtn.type === 'link'" :color="leftBtn.color" :text="leftBtn.text" :link="leftBtn.link"/>
         </v-app-bar>
         <v-content>
             <slot></slot>
@@ -44,7 +44,7 @@ export default {
             this.navColor = props.color
             this.dark = props.dark
             this.iconColor = props.iconColor
-            this.leftBtn = props.leftBtn
+            this.leftBtn = props.leftBtn || {}
         });
     }
 }

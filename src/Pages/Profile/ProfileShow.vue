@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <div class="d-flex">
-                        <v-btn color="pink" small class="flex-grow-1 mr-2" dark rounded>
+                        <v-btn color="pink" elevation="0" small class="flex-grow-1 mr-2" dark rounded>
                             <v-icon small class="mr-1">mdi-star-circle</v-icon>
                             HERO DONOR
                         </v-btn>
@@ -127,8 +127,8 @@ export default {
             iconColor: 'pink',
             leftBtn: {
                 type: 'link',
-                text: 'More',
-                link: {name: 'Home'}
+                text: 'Edit',
+                link: {name: 'EditProfile'}
             }
         })
     }
