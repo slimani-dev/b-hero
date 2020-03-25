@@ -5,14 +5,14 @@
                              app
                              fixed>
             <v-list dense>
-                <v-list-item two-line>
+                <v-list-item two-line @click="$router.push({name: 'MyProfile'})">
                     <v-list-item-avatar>
                         <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="">
                     </v-list-item-avatar>
 
                     <v-list-item-content>
-                        <v-list-item-title>Application</v-list-item-title>
-                        <v-list-item-subtitle>Subtext</v-list-item-subtitle>
+                        <v-list-item-title>Mohamed Slimani</v-list-item-title>
+                        <v-list-item-subtitle>slimani.1993@glmail.com</v-list-item-subtitle>
                     </v-list-item-content>
                 </v-list-item>
 

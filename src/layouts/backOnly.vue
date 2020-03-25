@@ -12,6 +12,8 @@
             <v-toolbar-title>
                 <span>{{ title }}</span>
             </v-toolbar-title>
+            <v-spacer/>
+            <LinkBtn v-if="leftBtn.type === 'link'" :color="leftBtn.color" :link="leftBtn.link"/>
         </v-app-bar>
         <v-content>
             <slot></slot>
@@ -21,15 +23,18 @@
 
 <script>
 import {serverBus} from '@/main';
+import LinkBtn from "@/layouts/LinkBtn";
 
 export default {
     name: "BackOnly",
+    components: {LinkBtn},
     data() {
         return {
             title: '',
             navColor: 'white',
             iconColor: 'pink',
-            dark: false
+            dark: false,
+            leftBtn : {}
         }
     },
     created() {
@@ -39,6 +44,7 @@ export default {
             this.navColor = props.color
             this.dark = props.dark
             this.iconColor = props.iconColor
+            this.leftBtn = props.leftBtn
         });
     }
 }
