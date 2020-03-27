@@ -1,6 +1,6 @@
 <template>
     <v-card class="white mb-2">
-        <v-list-item two-line>
+        <v-list-item two-line @click="gotoUser">
             <v-list-item-avatar>
                 <!--suppress HtmlUnknownTarget -->
                 <img :src="post.user.avatar" alt="">
@@ -65,6 +65,16 @@ export default {
         post: {
             type: Object,
             required: true
+        }
+    },
+    methods: {
+        gotoUser() {
+            const id = this.post.user.id
+            if (id !== 1) {
+                this.$router.push({name: 'UserProfile', params: { id: id.toString() }})
+            } else {
+                this.$router.push({name: 'MyProfile'})
+            }
         }
     }
 }

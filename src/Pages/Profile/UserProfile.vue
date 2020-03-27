@@ -1,50 +1,10 @@
 <template>
     <v-container class="pt-0 px-0 grey lighten-4">
-        <v-card class="mb-1" :class="$vuetify.breakpoint.lgAndUp ? 'mt-5': ''">
-            <div class="pa-5 d-flex flex-row">
-                <div class="user-avatar  mr-5 blue-grey lighten-5 d-flex justify-center align-center">
-                    <img src="../../assets/img/avatar/dafual-user-avatar.png" alt="">
-                </div>
-                <div class="d-flex flex-column flex-grow-1">
-                    <div class="d-flex flex-row mb-2">
-                        <div class="d-flex flex-column align-center flex-grow-1">
-                            <h2 class="pink--text">4</h2>
-                            DONATED
-                        </div>
-                        <div class="d-flex flex-column align-center flex-grow-1">
-                            <h2 class="pink--text">4</h2>
-                            DONATED
-                        </div>
-                        <div class="d-flex flex-column align-center flex-grow-1">
-                            <h2>
-                                <v-icon color="pink">mdi-heart-outline</v-icon>
-                            </h2>
-                            23
-                        </div>
-                    </div>
-                    <div class="d-flex">
-                        <v-btn color="pink" elevation="0" small class="flex-grow-1 mr-2" dark rounded>
-                            <v-icon small class="mr-1">mdi-star-circle</v-icon>
-                            HERO
-                        </v-btn>
-                        <v-btn color="pink" class="flex-grow-1" small outlined dark rounded>MY ACCOUNT</v-btn>
-                    </div>
-                </div>
-            </div>
-            <div class="px-5 pb-1">
-                <div class="d-flex align-center">
-                    <v-icon>mdi-map-marker-outline</v-icon>
-                    <h2 class="mb-0">Mumbai</h2>
-                </div>
-                <p>
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                </p>
-            </div>
-        </v-card>
+        <user-info :contact="!!id"/>
 
-        <new-post title="MY ACTIVITY"></new-post>
+        <new-post title="RECENT ACTIVITY" :title-only="!!id"></new-post>
 
-        <Post  v-for="post in posts" :key="post.id" :post="post"/>
+        <Post v-for="post in posts" :key="post.id" :post="post"/>
 
         <LoadMore :more-loading="moreLoading" @load-more="moreLoading = !moreLoading"/>
 
@@ -56,10 +16,14 @@ import {serverBus} from "@/main";
 import NewPost from "@/components/feed/NewPost";
 import Post from "@/Pages/Post";
 import LoadMore from "@/Pages/LoadMore";
+import UserInfo from "@/components/profile/UserInfo";
 
 export default {
-    name: "ProfileShow",
-    components: {LoadMore, Post, NewPost},
+    name: "UserProfile",
+    components: {UserInfo, LoadMore, Post, NewPost},
+    props: {
+        id: String
+    },
     data() {
         return {
             moreLoading: false,
@@ -125,25 +89,8 @@ export default {
             color: 'white',
             dark: false,
             iconColor: 'pink',
-            leftBtn: {
-                type: 'link',
-                text: 'Edit',
-                link: {name: 'EditProfile'}
-            }
         })
     }
 }
 </script>
 
-<style scoped lang="scss">
-    .user-avatar {
-        height: 84px;
-        width: 84px;
-        border-radius: 50%;
-
-        img {
-            height: 74px;
-            width: 74px;
-        }
-    }
-</style>
