@@ -85,7 +85,7 @@ export default {
                 {
                     id: 2,
                     user: {
-                        id: 1,
+                        id: 2,
                         name: 'Mohamed Slimani',
                         avatar: 'https://i.imgur.com/2eBWijB.png'
                     },
@@ -98,7 +98,7 @@ export default {
                 {
                     id: 3,
                     user: {
-                        id: 1,
+                        id: 2,
                         name: 'Mohamed Slimani',
                         avatar: 'https://i.imgur.com/2eBWijB.png'
                     },

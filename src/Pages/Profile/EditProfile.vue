@@ -10,7 +10,6 @@
                               label="Full Name"
                               filled
                               single-line
-                              clearable
                               rounded
                               dense
                               required/>
@@ -20,21 +19,28 @@
                               label="E-mail"
                               filled
                               single-line
-                              clearable
                               rounded
                               dense
                               required/>
 
                 <h4>Gander</h4>
 
-                <div class="d-flex my-4 justify-center align-center w-100">
-                    <div class="d-flex flex-column align-center grey--text">
-                        <img class="avatar-image" src="../../assets/img/avatar/man-gray.svg" alt="">
+                <div class="d-flex justify-center align-center w-100">
+                    <div class="d-flex pa-4 flex-column align-center pointer"
+                         v-ripple
+                         @click="gander = 'male'"
+                         :class="gander === 'male' ? 'pink--text' : 'grey--text'">
+                        <img v-if="gander === 'male'" class="avatar-image" src="../../assets/img/avatar/man-red.svg" alt="">
+                        <img v-else class="avatar-image" src="../../assets/img/avatar/man-gray.svg" alt="">
                         Male
                     </div>
-                    <div class="mx-5 divider mb-5"></div>
-                    <div class="d-flex flex-column align-center pink--text">
-                        <img class="avatar-image" src="../../assets/img/avatar/woman-red.svg" alt="">
+                    <div class="divider mb-5"></div>
+                    <div class="d-flex pa-4 flex-column align-center pointer"
+                         v-ripple
+                         @click="gander = 'female'"
+                         :class="gander === 'female' ? 'pink--text' : 'grey--text'">
+                        <img v-if="gander === 'female'" class="avatar-image" src="../../assets/img/avatar/woman-red.svg" alt="">
+                        <img v-else class="avatar-image" src="../../assets/img/avatar/woman-gray.svg" alt="">
                         Female
                     </div>
                 </div>
@@ -47,7 +53,6 @@
                               label="Address"
                               filled
                               single-line
-                              clearable
                               rounded
                               dense
                               required/>
@@ -119,6 +124,7 @@ export default {
                 'A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-',
             ],
             bloodGroup: '',
+            gander: '',
             loading: false,
         }
     },
@@ -143,6 +149,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+    .pointer {
+        cursor: pointer;
+    }
 
     .avatar-image {
         border-radius: 50%;

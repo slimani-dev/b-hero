@@ -12,7 +12,18 @@ const routes = [
     {
         path: '/profile',
         name: 'MyProfile',
-        component: () => import( '@/Pages/Profile/ProfileShow'),
+        component: () => import( '@/Pages/Profile/UserProfile'),
+        meta: {
+            layout: 'back-only',
+            transition: 'fade-in-up'
+        }
+    },
+
+    {
+        path: '/profile/:id',
+        name: 'UserProfile',
+        props: true,
+        component: () => import( '@/Pages/Profile/UserProfile'),
         meta: {
             layout: 'back-only',
             transition: 'fade-in-up'

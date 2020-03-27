@@ -1,13 +1,11 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify/lib'
-import {Touch} from 'vuetify/lib/directives'
+import {Touch, Ripple} from 'vuetify/lib/directives'
 
 Vue.use(Vuetify, {
     directives: {
-        Touch
+        Touch, Ripple
     }
 })
 
-export default new Vuetify({
-
-})
+export default new Vuetify({})

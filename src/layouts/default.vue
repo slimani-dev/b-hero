@@ -220,6 +220,7 @@ export default {
             {icon: 'mdi-login', text: 'Login', link: {name: 'Login'}},
             {icon: 'mdi-phone', text: 'PhoneLogin', link: {name: 'PhoneLogin'}},
             {icon: 'mdi-account-edit', text: 'Edit Account', link: {name: 'EditProfile'}},
+            {icon: 'mdi-account-edit', text: 'Request Form', link: {name: 'RequestForm'}},
         ],
     }),
     methods: {
