@@ -4,6 +4,7 @@ import Home from "@/Pages/Home";
 
 import profile from './profile'
 import request from './request'
+import donors from "./donors";
 
 Vue.use(VueRouter)
 
@@ -52,7 +53,7 @@ const router = new VueRouter({
     return window.scrollTo({top: 0, behavior: 'smooth'});
   },
   base: process.env.BASE_URL,
-  routes: routes.concat(profile, request)
+  routes: routes.concat(profile, request, donors)
 })
 
 export default router

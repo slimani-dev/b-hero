@@ -221,6 +221,7 @@ export default {
             {icon: 'mdi-phone', text: 'PhoneLogin', link: {name: 'PhoneLogin'}},
             {icon: 'mdi-account-edit', text: 'Edit Account', link: {name: 'EditProfile'}},
             {icon: 'mdi-account-edit', text: 'Request Form', link: {name: 'RequestForm'}},
+            {icon: 'mdi-account-edit', text: 'Donors List', link: {name: 'DonorsList'}},
         ],
     }),
     methods: {

@@ -58,8 +58,8 @@
 
 <script>
 import NewPost from "@/components/feed/NewPost";
-import Post from "@/Pages/Post";
-import LoadMore from "@/Pages/LoadMore";
+import Post from "@/components/feed/Post";
+import LoadMore from "@/components/feed/LoadMore";
 
 export default {
     name: 'Home',

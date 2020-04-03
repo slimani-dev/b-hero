@@ -12,13 +12,13 @@
                     <div class="d-flex caption">
                         <div class="mr-3 ">
                             <p class="mb-0">
-                                <img src="../assets/img/icons/clock.svg" alt="" class="mr-1">
+                                <img src="@/assets/img/icons/clock.svg" alt="" class="mr-1">
                                 {{ post.time }}
                             </p>
                         </div>
                         <div>
                             <p class="mb-0">
-                                <img src="../assets/img/icons/marker.svg" alt="" class="mr-1">
+                                <img src="@/assets/img/icons/marker.svg" alt="" class="mr-1">
                                 {{ post.location }}
                             </p>
                         </div>
@@ -29,7 +29,7 @@
         <!--suppress HtmlUnknownTarget -->
         <v-img class="white--text align-end elevation-1"
                :aspect-ratio="1"
-               lazy-src="../assets/img/feed/placeholder-image-png-6.png"
+               lazy-src="../../assets/img/feed/placeholder-image-png-6.png"
                :src="post.image">
             <template v-slot:placeholder>
                 <v-row class="fill-height ma-0"
